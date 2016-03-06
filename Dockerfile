@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xmlsec1 \
     libyaml-dev
 
-RUN pip3 install satosa==0.7.0
+RUN pip3 install satosa==1.0.0
 
 COPY start.sh /tmp/satosa/start.sh
 ENTRYPOINT ["/tmp/satosa/start.sh"]
