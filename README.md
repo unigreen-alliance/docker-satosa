@@ -1,5 +1,8 @@
 # SATOSA proxy Docker image
 
+Necessary files for building a Docker image for running a
+[satosa](https://github.com/its-dirg/satosa) instance.
+
 ## Volume binding
 All configuration for the proxy in the container by mounting a host directory as
 a volume under a directory specified in the environment variable `DATA_DIR` in
