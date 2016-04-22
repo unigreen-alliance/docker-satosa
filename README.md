@@ -64,5 +64,6 @@ write it to the mounted host directory.
 
 ## Running a container from the image
 ```bash
-docker run -p <port on host>:<proxy_port> -v <host directory>:<data_dir> -e DATA_DIR=<data_dir> -e PROXY_PORT=<proxy_port> -e SATOSA_STATE_ENCRYPTION_KEY=<secret key> -e SATOSA_USER_ID_HASH_SALT=<secret salt> itsdirg/satosa
+docker run -p <port on host>:<proxy_port> -v <host directory>:<data_dir> -e DATA_DIR=<data_dir> -e PROXY_PORT=<proxy_port> -e SATOSA_STATE_ENCRYPTION_KEY=<secret key> -e SATOSA_USER_ID_HASH_SALT=<secret salt> [-e METADATA_DIR=<metadata_dir>]
+itsdirg/satosa
 ```
