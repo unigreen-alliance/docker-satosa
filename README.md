@@ -26,6 +26,8 @@ SATOSA uses a "secure cookie".
     ├── frontend.key
     ├── https.crt
     ├── https.key
+    ├── metadata.crt
+    ├── metadata.key
     ├── plugins
     │   ├── saml2_backend.py
     │   └── saml2_frontend.py
@@ -35,6 +37,7 @@ SATOSA uses a "secure cookie".
 where
 
 * `{backend, frontend}.{crt, key}` is the cert+key for the SAML SP and IdP of the proxy
+* `metadata.{crt, key}` is the cert+key for signing the SAML metadata that is generated
 * `{https}.{crt, key}` is the cert+key for HTTPS
 * `plugins/saml2_{backend, frontend}.py` is the configuration of the SAML SP and IdP of the proxy
 * `proxy_conf.yaml` is the configuration of the proxy
