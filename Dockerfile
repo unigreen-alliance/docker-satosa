@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xmlsec1 \
     libyaml-dev
 
-COPY SATOSA-3.1.0-py3-none-any.whl /SATOSA-3.1.0-py3-none-any.whl
-RUN pip3 install /SATOSA-3.1.0-py3-none-any.whl
+COPY SATOSA-3.3.0-py3-none-any.whl /SATOSA-3.3.0-py3-none-any.whl
+RUN pip3 install /SATOSA-3.3.0-py3-none-any.whl
 
 COPY start.sh /tmp/satosa/start.sh
 ENTRYPOINT ["/tmp/satosa/start.sh"]
