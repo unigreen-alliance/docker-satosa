@@ -27,7 +27,7 @@ cd ${DATA_DIR}
 
 # generate metadata for front- (IdP) and back-end (SP) and write it to mounted volume
 
-make_satosa_saml_metadata.py -o ${METADATA_DIR} proxy_conf.yaml
+satosa-saml-metadata proxy_conf.yaml ${DATA_DIR}/metadata.key ${DATA_DIR}/metadata.crt --dir ${METADATA_DIR}
 
 # start the proxy
 if [[ -f https.key && -f https.crt ]]; then # if HTTPS cert is available, use it
