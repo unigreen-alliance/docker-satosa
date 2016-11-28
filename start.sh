@@ -7,14 +7,27 @@ export LANG=C.UTF-8
 # exit immediately on failure
 set -e
 
-cd ${DATA_DIR}
+if [ -z "${DATA_DIR}" ]; then
+   DATA_DIR=/etc/satosa
+fi
+
+if [ ! -d "${DATA_DIR}" ]; then
+   mkdir -p "${DATA_DIR}"
+fi
+
+if [ -z "${PROXY_PORT}" ]; then
+   PROXY_PORT="8000"
+fi
 
 if [ -z "${METADATA_DIR}" ]; then
-    export METADATA_DIR="."
+   METADATA_DIR="${DATA_DIR}"
 fi
-mkdir -p "${METADATA_DIR}"
+
+cd ${DATA_DIR}
+
 # generate metadata for front- (IdP) and back-end (SP) and write it to mounted volume
-satosa-saml-metadata proxy_conf.yaml metadata.key metadata.crt --dir "${METADATA_DIR}"
+
+make_satosa_saml_metadata.py -o ${METADATA_DIR} proxy_conf.yaml
 
 # start the proxy
 if [[ -f https.key && -f https.crt ]]; then # if HTTPS cert is available, use it
