@@ -25,6 +25,13 @@ fi
 
 cd ${DATA_DIR}
 
+mkdir -p ${METADATA_DIR}
+
+if [ ! -d ${DATA_DIR}/attributemaps ]; then
+   cp -pr /tmp/satosa/attributemaps ${DATA_DIR}/attributemaps
+fi
+
+
 # generate metadata for front- (IdP) and back-end (SP) and write it to mounted volume
 
 satosa-saml-metadata proxy_conf.yaml ${DATA_DIR}/metadata.key ${DATA_DIR}/metadata.crt --dir ${METADATA_DIR}
