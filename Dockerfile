@@ -14,5 +14,5 @@ COPY SATOSA-3.3.1-py3-none-any.whl /SATOSA-3.3.1-py3-none-any.whl
 RUN pip3 install /SATOSA-3.3.1-py3-none-any.whl
 
 COPY start.sh /tmp/satosa/start.sh
-COPY attributemaps /tmp/satosa/
+COPY attributemaps /tmp/satosa/attributemaps
 ENTRYPOINT ["/tmp/satosa/start.sh"]
