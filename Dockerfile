@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     xmlsec1 \
     libyaml-dev
 
-COPY SATOSA-3.3.1-py3-none-any.whl /SATOSA-3.3.1-py3-none-any.whl
-RUN pip3 install /SATOSA-3.3.1-py3-none-any.whl
+RUN pip3 install --upgrade pip setuptools
+RUN pip3 install SATOSA
 
 COPY start.sh /tmp/satosa/start.sh
 COPY attributemaps /tmp/satosa/attributemaps
