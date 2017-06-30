@@ -38,7 +38,7 @@ satosa-saml-metadata proxy_conf.yaml ${DATA_DIR}/metadata.key ${DATA_DIR}/metada
 
 # start the proxy
 if [[ -f https.key && -f https.crt ]]; then # if HTTPS cert is available, use it
-  exec gunicorn -b0.0.0.0:${PROXY_PORT} --keyfile https.key --certfile https.crt satosa.wsgi:app
+  exec gunicorn --reload -b0.0.0.0:${PROXY_PORT} --keyfile https.key --certfile https.crt satosa.wsgi:app
 else
   exec gunicorn -b0.0.0.0:${PROXY_PORT} satosa.wsgi:app
 fi
