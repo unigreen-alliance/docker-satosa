@@ -1,5 +1,5 @@
-VERSION=latest
-NAME=satosa
+VERSION:=latest
+NAME:=satosa
 
 all: build push
 build:
