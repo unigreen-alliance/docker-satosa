@@ -1,0 +1,2 @@
+-e git+https://github.com/IdentityPython/SATOSA.git@0d521b160c779cd1d962eb232692034c0155df9d
+ldap3
