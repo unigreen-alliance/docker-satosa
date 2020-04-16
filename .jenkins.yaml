@@ -10,7 +10,7 @@ git:
     - master
 clean_workspace: true
 
-docker_name: docker-satosa
+docker_name: satosa
 
 builders:
   - docker
