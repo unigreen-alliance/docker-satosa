@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libyaml-dev
 
 RUN pip3 install --upgrade pip setuptools
-COPY requirements.txt requirements.txt
+COPY .requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
 COPY start.sh /tmp/satosa/start.sh
