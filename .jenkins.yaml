@@ -13,7 +13,7 @@ clean_workspace: true
 docker_name: satosa
 
 builders:
-  - docker
+  - make
 
 extra_jobs:
   - name: comanage-docker-satosa
