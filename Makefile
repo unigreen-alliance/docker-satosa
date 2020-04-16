@@ -6,7 +6,7 @@ PACKAGE=SATOSA
 .PHONY: requirements.txt
 
 all: versions.txt
-	@for v in $(VERSIONS); do make VERSION=$$v build push freeze; done
+	@for v in $(VERSIONS); do make VERSION=$$v clean build push freeze; done
 
 test:
 
@@ -26,3 +26,6 @@ freeze:
 
 push:
 	@docker push docker.sunet.se/$(NAME):$(VERSION)
+
+clean:
+	@rm -f requirements.txt
