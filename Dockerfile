@@ -14,6 +14,11 @@ RUN pip3 install --upgrade pip setuptools
 COPY .requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
 
+# Set language to prevent errors when breaking
+# into the container to run satosa-saml-metadata.
+ENV LC_ALL=C.UTF-8
+ENV LANG=C.UTF-8
+
 COPY start.sh /tmp/satosa/start.sh
 COPY attributemaps /tmp/satosa/attributemaps
 ENTRYPOINT ["/tmp/satosa/start.sh"]
