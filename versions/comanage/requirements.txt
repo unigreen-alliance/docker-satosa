@@ -1,2 +1,2 @@
--e git+https://github.com/IdentityPython/SATOSA.git@0d521b160c779cd1d962eb232692034c0155df9d#egg=SATOSA
+SATOSA==6.1.0
 ldap3
