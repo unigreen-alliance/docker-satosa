@@ -1,7 +1,15 @@
 EDUCOURSE_OID = 'urn:oid:1.3.6.1.4.1.5923.1.6.1.'
 EDUPERSON_OID = 'urn:oid:1.3.6.1.4.1.5923.1.1.1.'
 EDUMEMBER1_OID = 'urn:oid:1.3.6.1.4.1.5923.1.5.1.'
-LDAPGVAT_OID = 'urn:oid:1.2.40.0.10.2.1.1.' # ldap.gv.at definitions as specified in http://www.ref.gv.at/AG-IZ-PVP2-Version-2-1-0-2.2754.0.html
+
+# voPerson class References:
+# - https://github.com/voperson/voperson/blob/2.0.0/voPerson.md#voperson-object-class-definition
+VOPERSON_V2_OID = 'urn:oid:1.3.6.1.4.1.25178.4.1.'
+
+# ldap.gv.at definitions as specified in:
+# http://www.ref.gv.at/AG-IZ-PVP2-Version-2-1-0-2.2754.0.html
+LDAPGVAT_OID = 'urn:oid:1.2.40.0.10.2.1.1.'
+
 UCL_DIR_PILOT = 'urn:oid:0.9.2342.19200300.100.1.'
 X500ATTR_OID = 'urn:oid:2.5.4.'
 LDAPGVAT_UCL_DIR_PILOT = UCL_DIR_PILOT
@@ -12,11 +20,71 @@ PKCS_9 = 'urn:oid:1.2.840.113549.1.9.1.'
 SCHAC = 'urn:oid:1.3.6.1.4.1.25178.1.2.'
 SIS = 'urn:oid:1.2.752.194.10.2.'
 UMICH = 'urn:oid:1.3.6.1.4.1.250.1.57.'
-OPENOSI_OID = 'urn:oid:1.3.6.1.4.1.27630.2.1.1.' #openosi-0.82.schema http://www.openosi.org/osi/display/ldap/Home
+
+# openosi-0.82.schema http://www.openosi.org/osi/display/ldap/Home
+OPENOSI_OID = 'urn:oid:1.3.6.1.4.1.27630.2.1.1.'
+SWISSEDUPERSON_OID = 'urn:oid:2.16.756.1.2.5.1.1.'
+
+EIDAS_NATURALPERSON = 'http://eidas.europa.eu/attributes/naturalperson/'
+EIDAS_LEGALPERSON = 'http://eidas.europa.eu/attributes/legalperson/'
+
+# SAML subject id specification
+# https://docs.oasis-open.org/security/saml-subject-id-attr/v1.0/cs01/saml-subject-id-attr-v1.0-cs01.html
+SAML_SUBJECT_ID = 'urn:oasis:names:tc:SAML:attribute:'
+
+# umbrellaID specification - https://www.umbrellaid.org
+# https://github.com/Umbrella-Commiters/UmbrellaIdP3/blob/master/schema/99-user.ldif
+UMBRELLA_EAAUser_ID = 'urn:oid:1.3.6.1.4.1.42750.1.1.'
+
+# PKIX specification (SMI Security for PKIX Personal Data Attributes)
+# https://tools.ietf.org/html/rfc7299
+PKIX_OID = 'urn:oid:1.3.6.1.5.5.7.9.'
+
+# INERA specification
+# Closet public spec source I could find, sadly in swedish
+# https://www.sambi.se/wordpress/wp-content/uploads/2017/06/Sambi_Attributspecifikation_1.1.pdf
+INERA_OID = 'urn:oid:1.2.752.29.4.'
+
+# DIGG specification
+# https://docs.swedenconnect.se/technical-framework/latest/ELN-0604_-_Attribute_Specification_for_the_Swedish_eID_Framework.html
+DIGG_OID = 'urn:oid:1.2.752.201.3.'
 
 MAP = {
     'identifier': 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
     'fro': {
+        DIGG_OID+'1': 'orgAffiliation',
+        DIGG_OID+'2': 'transactionIdentifier',
+        DIGG_OID+'3': 'authContextParams',
+        DIGG_OID+'4': 'prid',
+        DIGG_OID+'5': 'pridPersistence',
+        DIGG_OID+'6': 'personalIdentityNumberBinding',
+        DIGG_OID+'7': 'eidasPersonIdentifier',
+        DIGG_OID+'8': 'birthName',
+        DIGG_OID+'9': 'eidasNaturalPersonAddress',
+        DIGG_OID+'10': 'userCertificate',
+        DIGG_OID+'11': 'userSignature',
+        DIGG_OID+'12': 'sad',
+        DIGG_OID+'13': 'authServerSignature',
+        DIGG_OID+'14': 'signMessageDigest',
+        EIDAS_LEGALPERSON+'LegalPersonIdentifier': 'LegalPersonIdentifier',
+        EIDAS_LEGALPERSON+'LegalPersonAddress': 'LegalAddress',
+        EIDAS_LEGALPERSON+'LegalName': 'LegalName',
+        EIDAS_LEGALPERSON+'VATRegistrationNumber': 'VATRegistration',
+        EIDAS_LEGALPERSON+'TaxReference': 'TaxReference',
+        EIDAS_LEGALPERSON+'BusinessCodes': 'BusinessCodes',
+        EIDAS_LEGALPERSON+'LEI': 'LEI',
+        EIDAS_LEGALPERSON+'EORI': 'EORI',
+        EIDAS_LEGALPERSON+'SEED': 'SEED',
+        EIDAS_LEGALPERSON+'SIC': 'SIC',
+        EIDAS_LEGALPERSON+'D-2012-17-EUIdentifier': 'D-2012-17-EUIdentifier',
+        EIDAS_NATURALPERSON+'PersonIdentifier': 'PersonIdentifier',
+        EIDAS_NATURALPERSON+'CurrentFamilyName': 'FamilyName',
+        EIDAS_NATURALPERSON+'CurrentGivenName': 'FirstName',
+        EIDAS_NATURALPERSON+'DateOfBirth': 'DateOfBirth',
+        EIDAS_NATURALPERSON+'BirthName': 'BirthName',
+        EIDAS_NATURALPERSON+'PlaceOfBirth': 'PlaceOfBirth',
+        EIDAS_NATURALPERSON+'CurrentAddress': 'CurrentAddress',
+        EIDAS_NATURALPERSON+'Gender': 'Gender',
         EDUCOURSE_OID+'1': 'eduCourseOffering',
         EDUCOURSE_OID+'2': 'eduCourseMember',
         EDUMEMBER1_OID+'1': 'isMemberOf',
@@ -34,6 +102,8 @@ MAP = {
         EDUPERSON_OID+'12': 'eduPersonPrincipalNamePrior',
         EDUPERSON_OID+'13': 'eduPersonUniqueId',
         EDUPERSON_OID+'16': 'eduPersonOrcid',
+        INERA_OID+'1': 'employeeHsaId',
+        INERA_OID+'13': 'personalIdentityNumber',
         LDAPGVAT_OID+'1': 'PVP-GID',
         LDAPGVAT_OID+'149': 'PVP-BPK',
         LDAPGVAT_OID+'153': 'PVP-OU-OKZ',
@@ -81,6 +151,13 @@ MAP = {
         OPENOSI_OID+'109': 'osiOtherHomePhone',
         OPENOSI_OID+'120': 'osiWorkURL',
         PKCS_9+'1': 'email',
+        PKIX_OID+'1': 'dateOfBirth',
+        PKIX_OID+'2': 'placeOfBirth',
+        PKIX_OID+'3': 'gender',
+        PKIX_OID+'4': 'countryOfCitizenship',
+        PKIX_OID+'5': 'countryOfResidence',
+        SAML_SUBJECT_ID+'subject-id': 'subject-id',
+        SAML_SUBJECT_ID+'pairwise-id': 'pairwise-id',
         SCHAC+'1': 'schacMotherTongue',
         SCHAC+'2': 'schacGender',
         SCHAC+'3': 'schacDateOfBirth',
@@ -109,6 +186,8 @@ MAP = {
         UCL_DIR_PILOT+'37': 'associatedDomain',
         UCL_DIR_PILOT+'43': 'co',
         UCL_DIR_PILOT+'60': 'jpegPhoto',
+        UMBRELLA_EAAUser_ID+'1': 'EAAHash',
+        UMBRELLA_EAAUser_ID+'3': 'EAAKey',
         UMICH+'57': 'labeledURI',
         X500ATTR_OID+'2': 'knowledgeInformation',
         X500ATTR_OID+'3': 'cn',
@@ -159,10 +238,62 @@ MAP = {
         X500ATTR_OID+'53': 'deltaRevocationList',
         X500ATTR_OID+'54': 'dmdName',
         X500ATTR_OID+'65': 'pseudonym',
+        SWISSEDUPERSON_OID+'1': 'swissEduPersonUniqueID',
+        SWISSEDUPERSON_OID+'2': 'swissEduPersonDateOfBirth',
+        SWISSEDUPERSON_OID+'3': 'swissEduPersonGender',
+        SWISSEDUPERSON_OID+'4': 'swissEduPersonHomeOrganization',
+        SWISSEDUPERSON_OID+'5': 'swissEduPersonHomeOrganizationType',
+        SWISSEDUPERSON_OID+'6': 'swissEduPersonStudyBranch1',
+        SWISSEDUPERSON_OID+'7': 'swissEduPersonStudyBranch2',
+        SWISSEDUPERSON_OID+'8': 'swissEduPersonStudyBranch3',
+        SWISSEDUPERSON_OID+'9': 'swissEduPersonStudyLevel',
+        SWISSEDUPERSON_OID+'10': 'swissEduPersonStaffCategory',
+        SWISSEDUPERSON_OID+'11': 'swissEduPersonMatriculationNumber',
+        SWISSEDUPERSON_OID+'12': 'swissEduPersonCardUID',
+        SWISSEDUPERSON_OID+'13': 'swissEduID',
+        SWISSEDUPERSON_OID+'1023': 'swissLibraryPersonAffiliation',
+        SWISSEDUPERSON_OID+'1025': 'swissLibraryPersonResidence',
+        VOPERSON_V2_OID+'1': 'voPersonApplicationUID',
+        VOPERSON_V2_OID+'2': 'voPersonAuthorName',
+        VOPERSON_V2_OID+'3': 'voPersonCertificateDN',
+        VOPERSON_V2_OID+'4': 'voPersonCertificateIssuerDN',
+        VOPERSON_V2_OID+'5': 'voPersonExternalID',
+        VOPERSON_V2_OID+'6': 'voPersonID',
+        VOPERSON_V2_OID+'7': 'voPersonPolicyAgreement',
+        VOPERSON_V2_OID+'8': 'voPersonSoRID',
+        VOPERSON_V2_OID+'9': 'voPersonStatus',
+        VOPERSON_V2_OID+'10': 'voPersonAffiliation',
+        VOPERSON_V2_OID+'11': 'voPersonExternalAffiliation',
+        VOPERSON_V2_OID+'12': 'voPersonScopedAffiliation',
+        VOPERSON_V2_OID+'13': 'voPersonApplicationPassword',
+        VOPERSON_V2_OID+'14': 'voPersonVerifiedEmail',
+        VOPERSON_V2_OID+'15': 'voPersonToken',
     },
     'to': {
+        'LegalPersonIdentifier': EIDAS_LEGALPERSON+'LegalPersonIdentifier',
+        'LegalAddress': EIDAS_LEGALPERSON+'LegalPersonAddress',
+        'LegalName': EIDAS_LEGALPERSON+'LegalName',
+        'VATRegistration': EIDAS_LEGALPERSON+'VATRegistrationNumber',
+        'TaxReference': EIDAS_LEGALPERSON+'TaxReference',
+        'BusinessCodes': EIDAS_LEGALPERSON+'BusinessCodes',
+        'LEI': EIDAS_LEGALPERSON+'LEI',
+        'EORI': EIDAS_LEGALPERSON+'EORI',
+        'SEED': EIDAS_LEGALPERSON+'SEED',
+        'SIC': EIDAS_LEGALPERSON+'SIC',
+        'D-2012-17-EUIdentifier': EIDAS_LEGALPERSON+'D-2012-17-EUIdentifier',
+        'PersonIdentifier': EIDAS_NATURALPERSON+'PersonIdentifier',
+        'FamilyName': EIDAS_NATURALPERSON+'CurrentFamilyName',
+        'FirstName': EIDAS_NATURALPERSON+'CurrentGivenName',
+        'DateOfBirth': EIDAS_NATURALPERSON+'DateOfBirth',
+        'BirthName': EIDAS_NATURALPERSON+'BirthName',
+        'PlaceOfBirth': EIDAS_NATURALPERSON+'PlaceOfBirth',
+        'CurrentAddress': EIDAS_NATURALPERSON+'CurrentAddress',
+        'Gender': EIDAS_NATURALPERSON+'Gender',
         'associatedDomain': UCL_DIR_PILOT+'37',
+        'authContextParams': DIGG_OID+'3',
         'authorityRevocationList': X500ATTR_OID+'38',
+        'authServerSignature': DIGG_OID+'13',
+        'birthName': DIGG_OID+'8',
         'businessCategory': X500ATTR_OID+'15',
         'c': X500ATTR_OID+'6',
         'cACertificate': X500ATTR_OID+'37',
@@ -170,7 +301,10 @@ MAP = {
         'certificateRevocationList': X500ATTR_OID+'39',
         'cn': X500ATTR_OID+'3',
         'co': UCL_DIR_PILOT+'43',
+        'countryOfCitizenship': PKIX_OID+'4',
+        'countryOfResidence': PKIX_OID+'5',
         'crossCertificatePair': X500ATTR_OID+'40',
+        'dateOfBirth': PKIX_OID+'1',
         'dc': UCL_DIR_PILOT+'25',
         'deltaRevocationList': X500ATTR_OID+'53',
         'departmentNumber': NETSCAPE_LDAP+'2',
@@ -178,6 +312,8 @@ MAP = {
         'displayName': NETSCAPE_LDAP+'241',
         'dmdName': X500ATTR_OID+'54',
         'dnQualifier': X500ATTR_OID+'46',
+        'EAAHash': UMBRELLA_EAAUser_ID+'1',
+        'EAAKey': UMBRELLA_EAAUser_ID+'3',
         'eduCourseMember': EDUCOURSE_OID+'2',
         'eduCourseOffering': EDUCOURSE_OID+'1',
         'eduPersonAffiliation': EDUPERSON_OID+'1',
@@ -194,12 +330,16 @@ MAP = {
         'eduPersonAssurance': EDUPERSON_OID+'11',
         'eduPersonUniqueId': EDUPERSON_OID+'13',
         'eduPersonOrcid': EDUPERSON_OID+'16',
+        'eidasNaturalPersonAddress': DIGG_OID+'9',
+        'eidasPersonIdentifier': DIGG_OID+'7',
         'email': PKCS_9+'1',
+        'employeeHsaId': INERA_OID+'1',
         'employeeNumber': NETSCAPE_LDAP+'3',
         'employeeType': NETSCAPE_LDAP+'4',
         'enhancedSearchGuide': X500ATTR_OID+'47',
         'facsimileTelephoneNumber': X500ATTR_OID+'23',
         'federationFeideSchemaVersion': NOREDUPERSON_OID+'9',
+        'gender': PKIX_OID+'3',
         'generationQualifier': X500ATTR_OID+'44',
         'givenName': X500ATTR_OID+'42',
         'houseIdentifier': X500ATTR_OID+'51',
@@ -232,14 +372,21 @@ MAP = {
         'osiOtherHomePhone': OPENOSI_OID+'109',
         'osiWorkURL': OPENOSI_OID+'120',
         'ou': X500ATTR_OID+'11',
+        'orgAffiliation': DIGG_OID+'1',
         'owner': X500ATTR_OID+'32',
+        'pairwise-id': SAML_SUBJECT_ID+'pairwise-id',
+        'personalIdentityNumber': INERA_OID+'13',
+        'personalIdentityNumberBinding': DIGG_OID+'6',
         'physicalDeliveryOfficeName': X500ATTR_OID+'19',
+        'placeOfBirth': PKIX_OID+'2',
         'postOfficeBox': X500ATTR_OID+'18',
         'postalAddress': X500ATTR_OID+'16',
         'postalCode': X500ATTR_OID+'17',
         'preferredDeliveryMethod': X500ATTR_OID+'28',
         'preferredLanguage': NETSCAPE_LDAP+'39',
         'presentationAddress': X500ATTR_OID+'29',
+        'prid': DIGG_OID+'4',
+        'pridPersistence': DIGG_OID+'5',
         'protocolInformation': X500ATTR_OID+'48',
         'pseudonym': X500ATTR_OID+'65',
         'PVP-USERID': LDAPGVAT_UCL_DIR_PILOT+'1',
@@ -263,6 +410,7 @@ MAP = {
         'PVP-GIVENNAME': LDAPGVAT_X500ATTR_OID+'42',
         'registeredAddress': X500ATTR_OID+'26',
         'roleOccupant': X500ATTR_OID+'33',
+        'sad': DIGG_OID+'12',
         'schacCountryOfCitizenship': SCHAC+'5',
         'schacCountryOfResidence': SCHAC+'11',
         'schacDateOfBirth': SCHAC+'3',
@@ -285,23 +433,58 @@ MAP = {
         'schacUserStatus': SCHAC+'19',
         'searchGuide': X500ATTR_OID+'14',
         'serialNumber': X500ATTR_OID+'5',
+        'signMessageDigest': DIGG_OID+'14',
         'sisLegalGuardianFor': SIS+'1',
         'sisSchoolGrade': SIS+'2',
         'sn': X500ATTR_OID+'4',
         'st': X500ATTR_OID+'8',
         'street': X500ATTR_OID+'9',
+        'subject-id': SAML_SUBJECT_ID+'subject-id',
         'supportedAlgorithms': X500ATTR_OID+'52',
         'supportedApplicationContext': X500ATTR_OID+'30',
         'telephoneNumber': X500ATTR_OID+'20',
         'teletexTerminalIdentifier': X500ATTR_OID+'22',
         'telexNumber': X500ATTR_OID+'21',
         'title': X500ATTR_OID+'12',
+        'transactionIdentifier': DIGG_OID+'2',
         'uid': UCL_DIR_PILOT+'1',
         'uniqueMember': X500ATTR_OID+'50',
         'userCertificate': X500ATTR_OID+'36',
+        #  'userCertificate': DIGG_OID+'10',
         'userPKCS12': NETSCAPE_LDAP+'216',
         'userSMIMECertificate': NETSCAPE_LDAP+'40',
+        'userSignature': DIGG_OID+'11',
         'x121Address': X500ATTR_OID+'24',
         'x500UniqueIdentifier': X500ATTR_OID+'45',
+        'swissEduPersonUniqueID': SWISSEDUPERSON_OID+'1',
+        'swissEduPersonDateOfBirth': SWISSEDUPERSON_OID+'2',
+        'swissEduPersonGender': SWISSEDUPERSON_OID+'3',
+        'swissEduPersonHomeOrganization': SWISSEDUPERSON_OID+'4',
+        'swissEduPersonHomeOrganizationType': SWISSEDUPERSON_OID+'5',
+        'swissEduPersonStudyBranch1': SWISSEDUPERSON_OID+'6',
+        'swissEduPersonStudyBranch2': SWISSEDUPERSON_OID+'7',
+        'swissEduPersonStudyBranch3': SWISSEDUPERSON_OID+'8',
+        'swissEduPersonStudyLevel': SWISSEDUPERSON_OID+'9',
+        'swissEduPersonStaffCategory': SWISSEDUPERSON_OID+'10',
+        'swissEduPersonMatriculationNumber': SWISSEDUPERSON_OID+'11',
+        'swissEduPersonCardUID': SWISSEDUPERSON_OID+'12',
+        'swissEduID': SWISSEDUPERSON_OID+'13',
+        'swissLibraryPersonAffiliation': SWISSEDUPERSON_OID+'1023',
+        'swissLibraryPersonResidence': SWISSEDUPERSON_OID+'1025',
+        'voPersonAffiliation': VOPERSON_V2_OID+'10',
+        'voPersonApplicationPassword': VOPERSON_V2_OID+'13',
+        'voPersonApplicationUID': VOPERSON_V2_OID+'1',
+        'voPersonAuthorName': VOPERSON_V2_OID+'2',
+        'voPersonCertificateDN': VOPERSON_V2_OID+'3',
+        'voPersonCertificateIssuerDN': VOPERSON_V2_OID+'4',
+        'voPersonExternalAffiliation': VOPERSON_V2_OID+'11',
+        'voPersonExternalID': VOPERSON_V2_OID+'5',
+        'voPersonID': VOPERSON_V2_OID+'6',
+        'voPersonPolicyAgreement': VOPERSON_V2_OID+'7',
+        'voPersonScopedAffiliation': VOPERSON_V2_OID+'12',
+        'voPersonSoRID': VOPERSON_V2_OID+'8',
+        'voPersonStatus': VOPERSON_V2_OID+'9',
+        'voPersonToken': VOPERSON_V2_OID+'15',
+        'voPersonVerifiedEmail': VOPERSON_V2_OID+'14',
     }
 }
