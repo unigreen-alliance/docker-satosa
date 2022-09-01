@@ -1,2 +1,5 @@
-__author__ = 'rohe0002'
-__all__ = ["adfs_v1x", "adfs_v20", "basic", "saml_uri", "shibboleth_uri"]
+from saml2.attributemaps import __all__
+
+
+if "unspecified" not in __all__:
+    __all__.append("unspecified")
