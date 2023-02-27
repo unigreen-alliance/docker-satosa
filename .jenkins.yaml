@@ -1,7 +1,4 @@
 ---
-environment_variables:
-  COMANAGE_SATOSA_VERSION: "experimental!! remember to change me later on!"
-
 triggers:
   cron: "@daily"
 
@@ -14,15 +11,3 @@ docker_name: satosa
 
 builders:
   - make
-
-extra_jobs:
-  - name: comanage-docker-satosa
-    builders:
-      - docker
-    docker_name: comanage-docker-satosa
-    git:
-      branch: co_virtual_idp 
-      extensions:
-          checkout_local_branch: true
-
-

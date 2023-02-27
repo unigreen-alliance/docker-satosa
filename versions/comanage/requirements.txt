@@ -1,2 +1,0 @@
-SATOSA==6.1.0
-ldap3
