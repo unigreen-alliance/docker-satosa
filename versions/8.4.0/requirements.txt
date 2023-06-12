@@ -1,0 +1,2 @@
+SATOSA==8.4.0
+swamid-plugins==0.1.0
