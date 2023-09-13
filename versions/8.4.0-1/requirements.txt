@@ -1,0 +1,3 @@
+SATOSA==8.4.0
+swamid-plugins==0.1.0
+satosa_oidcop==3.0.1
