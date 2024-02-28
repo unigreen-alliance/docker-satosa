@@ -1,3 +1,3 @@
 SATOSA==8.4.0
-swamid-plugins @ git+https://github.com/SUNET/swamid-satosa@4861f4803c87dc0ae1bfd9aab0ffa95cc206b927
+swamid-plugins @ git+https://github.com/SUNET/swamid-satosa@267cc5e436abb0ad40fcadcc14074a88c3eceaca
 satosa_oidcop==3.0.1
