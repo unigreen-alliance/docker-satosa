@@ -1,6 +1,7 @@
--e git+https://github.com/IdentityPython/idpy-oidc.git@openid4v#egg=idpyoidc
+-e git+https://github.com/IdentityPython/idpy-oidc.git@upstream_get#egg=idpyoidc
 -e git+https://github.com/rohe/openid4v.git#egg=openid4v
 -e git+https://github.com/rohe/idpy-sdjwt.git#egg=idpysdjwt
+-e git+https://github.com/rohe/fedservice@setup_example#egg=fedservice
 -e git+https://github.com/rohe/satosa-openid4vci.git#egg=satosa-openid4vci 
 pystache
 swamid-plugins==0.1.0
