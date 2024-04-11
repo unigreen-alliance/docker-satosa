@@ -1,5 +1,5 @@
 VERSION:=latest
-VERSIONS:=$(shell test -f versions.txt && cat versions.txt) dev latest
+VERSIONS:=$(shell test -f versions.txt && cat versions.txt) latest
 NAME:=satosa
 PACKAGE=SATOSA
 
