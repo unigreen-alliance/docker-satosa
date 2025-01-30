@@ -1,2 +1,2 @@
-git+https://github.com/frangarcj/SATOSA.git
+git+https://github.com/unigreen-alliance/SATOSA.git
 SQLAlchemy
