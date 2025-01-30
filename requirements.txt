@@ -1,4 +1,2 @@
--e git+git://github.com/leifj/pysaml2.git#egg=pysaml2
--e git+git://github.com/leifj/SATOSA.git#egg=SATOSA
-pystache
-
+git+https://github.com/frangarcj/SATOSA.git
+SQLAlchemy
